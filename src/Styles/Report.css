@@ -1,0 +1,38 @@
+ul {
+    display:flex;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    justify-content:center
+}
+.reportitems {
+	cursor:pointer;
+	text-align:center;
+	
+}
+#secondheader {
+    background-color: paleturquoise;
+  }
+
+button {
+    border: none;
+    padding:10px;
+    background: none;
+}
+
+li:hover {
+    background-color:rgb(12, 149, 240);
+    
+}	
+
+button:active, button:hover {
+    border:none;
+    background-color: rgb(59, 228, 228);
+}
+
+@media all and (max-width:350px)
+{
+	nav ul{
+		flex-direction: column
+	}
+}

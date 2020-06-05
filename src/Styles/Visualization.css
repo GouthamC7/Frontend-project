@@ -1,0 +1,238 @@
+/* h1 {
+    color:#0173a0;
+} */
+
+#comparisioncontainer {
+    width: 100%;
+}
+
+
+
+/* .maindiv {
+    width: 50%;
+} */
+#firstcontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    /* padding: 1%;*/
+    margin-top: 2%; 
+  }
+
+  .headings {
+    border-bottom: 1px solid lightgrey;
+  }
+  .headingsinfo {
+    color:#0173a0;
+    text-align: left;
+    padding: 3px;
+  }
+  #form{
+    margin-left: 5%;
+    padding: 2%;
+  }
+  #compare {
+      width: 100%;
+    border-bottom: 1px solid lightgrey;
+
+  }
+
+  #secondcontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    /* padding: 1%;*/
+    margin-top: 2%; 
+  }
+  #thirdcontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    /* padding: 1%;*/
+    margin-top: 2%; 
+  }
+  #fourthcontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    /* padding: 1%;*/
+    margin-top: 2%; 
+  }
+  @media(max-width: 768px) {
+    #firstcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #secondcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #thirdcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #fourthcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #sizefont {
+        font-size: small;
+    }
+    /* #deathleft {
+        display: block;
+      padding: 2%;
+      width: 100%;
+    }
+    #deathright {
+      display: inline-block;
+      padding: 0%;
+      width: 0%;
+    } */
+}
+
+
+/* #deathcontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    padding: 1%;
+    margin-top: 2%;
+  }*/
+
+  #death {
+    display: flex;
+    width: 100%;
+
+  }
+  #deathleft {
+    padding: 2%;
+    width: 50%;
+  }
+  #deathright {
+    padding: 2%;
+    width: 50%;
+  }
+  #sizefont {
+      font-size: medium;
+  }
+  @media(max-width: 768px) {
+    #secondcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #thirdcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #fourthcontainer {
+        width: 100%;
+        margin-left: 0%;
+    }
+    #sizefont {
+        font-size: small;
+    }
+    /* #deathleft {
+        display: block;
+      padding: 2%;
+      width: 100%;
+    }
+    #deathright {
+      display: inline-block;
+      padding: 0%;
+      width: 0%;
+    } */
+}
+
+@media all and (max-width:550px)
+{
+	#death {
+        display: block;
+        width: 100%;
+    
+      }
+      #deathleft {
+        padding: 2%;
+        width: 100%;
+      }
+      #deathright {
+        padding: 2%;
+        width: 100%;
+      }
+}
+  
+/*
+  #agecontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    padding: 1%;
+  }
+
+  #age {
+    display: flex;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    width: 70%;
+    margin-left: 15%;
+
+  }
+  .ageleft {
+    padding: 2%;
+    width: 100%;
+  }
+  .ageright {
+    padding: 2%;
+    width: 100%;
+  }
+
+  #guncontainer {
+    margin-left: 15%;
+    border: 1px solid lightgrey;
+    width: 70%;
+    padding: 1%;
+  }
+
+  #gun {
+    display: flex;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    width: 70%;
+    margin-left: 15%;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 5%;
+
+  }
+  .gunleft {
+    padding: 2%;
+    width: 100%;
+  }
+  .gunright {
+    padding: 2%;
+    width: 100%;
+  }
+  #gunheader {
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+  }
+  #ageheader {
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+  } */
+
+  
+  .stateselection {
+    padding: 5px;
+    width: 20%;
+    margin-right: 2%;
+  }
+  #comparebutton{
+    /* width: 20%; */
+    margin-top: -1%;
+  }
+  
+  /* #chart4 {
+    width: 50%;
+    padding: 2%;
+  } */

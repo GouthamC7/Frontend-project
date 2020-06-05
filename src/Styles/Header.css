@@ -1,0 +1,34 @@
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.1em;
+    color: #dedede;
+  }
+
+  #head {
+    display:flex;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    justify-content:center
+  }
+  
+  #head {
+    background-image: linear-gradient(to right, rgb(1, 73, 73) 20%, black);
+  }
+  .items {
+      cursor:pointer;
+      text-align:center;
+      padding:10px;
+      color: white;
+  }
+  
+  li:hover {
+      background-color:rgb(12, 149, 240)
+  }	
+  
+  @media all and (max-width:350px)
+  {
+      nav ul{
+          flex-direction: column
+      }
+  }

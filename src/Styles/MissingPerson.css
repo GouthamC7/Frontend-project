@@ -1,0 +1,89 @@
+.body {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* background-color: #0173a0; */
+    padding: 5%;
+    margin-top: -4%;
+  }
+
+  div {
+    display: block;
+}
+.row1{
+    display: block;
+}
+.row2{
+    display: block;
+}
+form {
+    padding: 10px;
+}
+  
+  #container {
+    width:50%;
+    margin-left: 25%;
+    background-color: white;
+    border-radius: 10px;
+    padding:20px;
+    justify-content: center;
+  }
+  
+  #heading {
+    justify-content: center;
+  }
+  
+  
+  h1 {
+    color:#0173a0;
+    text-align: center;
+    font-family: sans-serif;
+  }
+  
+  .lbl {
+    padding: 12px 12px 12px 0;
+    display: block;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .ip, select, textarea {
+    padding: 9px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  .btn {
+    width: 45%;
+    font-size: 15px;
+    padding: 7px 20px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  #submit {
+    background-color: #0173a0;
+    color: white;
+  }
+  
+  #submit:hover {
+    background-color: #13afec;
+    
+  }
+
+  @media (max-width: 768px) {
+    #container {
+        width:100%;
+        margin-left: 0%;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
