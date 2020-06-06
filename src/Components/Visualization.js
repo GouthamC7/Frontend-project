@@ -52,11 +52,6 @@ let gunobj = {"stolen":0, "unknown":0, "legal":0};
 let deathobj = {};
 let agecat = {"0-9":0, "10-18":0, "19-25":0, "25-64":0, "64+":0}
 data.forEach(element => {
-    /*if(states.hasOwnProperty(element.state)) {
-        states[element.state] = states[element.state] + 1;
-    } else {
-        states[element.state] = parseInt("1");
-    }*/
 
     date = element.date.slice(-4);
     if(deathobj.hasOwnProperty(date)) {
@@ -66,13 +61,9 @@ data.forEach(element => {
   }
 
     z = element.state;
-    //console.log(z)
     if(states.hasOwnProperty(element.state)) {
-        //console.log(states[element.state])
-        //console.log(states[element.state][date])
         states[element.state][date] = states[element.state][date] + parseInt(element.n_killed);
     } else {
-        //console.log(z + " === "+ date)
         let ob = new Object;
         ob["2013"] = 0;
         ob["2014"] = 0;
@@ -82,7 +73,6 @@ data.forEach(element => {
         ob["2018"] = 0;
         ob[date] = parseInt(element.n_killed);
         states[element.state] = ob;
-        //states.z.date = parseInt("1");
     }
 
 
@@ -90,9 +80,7 @@ var d = element.date.split('-');
 var age = element.participant_age.split("||");
 age.forEach(a => {
     temp = a.substring(3,5)
-    //console.log(temp + " -------- " + parseInt(temp));
     let t = parseInt(temp);
-    //console.log(t)
     if(t<=9) {
         agecat["0-9"] = agecat["0-9"]+1;
     } else if (t>9 && t<=18) {
@@ -137,8 +125,6 @@ var guns = element.gun_stolen.split("||");
         })
 })
 
-//////////////////////////////////////////////////////////
-
 this.setState({
   statesdata: states
 })
@@ -147,7 +133,6 @@ this.draw("California", "Florida",states)
 let first = {2013: 3, 2014: 284, 2015: 317, 2016: 398, 2017: 385, 2018: 72}
 let second = {2013: 8, 2014: 181, 2015: 197, 2016: 183, 2017: 230, 2018: 54}
 
-////////////////////////////////////////////////
 
 var key1 = [];
   var value1 = [];
@@ -201,11 +186,6 @@ for(var element in gunobj) {
   gunkey.push(element);
   gunvalue.push(gunobj[element]);
 }
-//console.log(genderobj)
-
-//console.log(key);
-//console.log(value)
-
 var chart = document.getElementById("guns").getContext('2d');
 var barChartOptions = {
     legend: {position: 'bottom'}
@@ -237,13 +217,6 @@ var myChart = new Chart(chart, {
 }
   }
 });
-// console.log(states);
-// console.log(ageobj)
-// console.log(agecat);
-console.log("------------")
-console.log(deathobj);
-console.log("------------")
-console.log(gunobj)
 var key = [];
 var value = [];
 
@@ -297,10 +270,6 @@ for(var element in genderobj) {
   key.push(element);
   value.push(genderobj[element]);
 }
-//console.log(genderobj)
-
-//console.log(key);
-//console.log(value)
 
 var chart = document.getElementById("myChart").getContext('2d');
 var barChartOptions = {
