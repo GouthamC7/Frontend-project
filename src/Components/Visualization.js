@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Styles/Visualization.css";
 import ComparisionComponent from "./ComparisionComponent";
+import CrimeParticipantsComponent from "./CrimeParticipantsComponent";
 import GunDeathsComponent from "./GunDeathsComponent";
 
 let data = [];
@@ -178,49 +179,6 @@ class Visualization extends Component {
     var key1 = [];
     var value1 = [];
 
-    for (element in agecat) {
-      key1.push(element);
-      value1.push(agecat[element]);
-    }
-
-    var chart = document.getElementById("myChart4").getContext("2d");
-    var barChartOptions = {
-      legend: { position: "bottom" },
-    };
-    var myChart = new Chart(chart, {
-      type: "bar",
-      data: {
-        labels: key1,
-        datasets: [
-          {
-            label: "",
-            data: value1,
-            backgroundColor: [
-              "rgba(54, 162, 235, 0.8)",
-              "rgba(255, 206, 86, 0.8)",
-              "rgba(255, 99, 132, 0.8)",
-              "rgba(75, 192, 192, 0.8)",
-              "rgba(153, 102, 255, 0.8)",
-            ],
-            borderColor: [
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        legend: {
-          display: false,
-          position: "bottom",
-        },
-      },
-    });
-
     var gunkey = [];
     var gunvalue = [];
 
@@ -385,35 +343,9 @@ class Visualization extends Component {
           states={states}
         ></ComparisionComponent>
         <GunDeathsComponent deathobj={deathobj}></GunDeathsComponent>
-        <div id="thirdcontainer">
-          <div className="headings">
-            <h3 className="headingsinfo">
-              Crime Participants by Age and Gender
-            </h3>
-          </div>
-          <div>
-            <p id="sizefont">
-              Even though female population has been approximately 3 percent
-              higher than the male population for the last couple of years, the
-              number of gun death caused by males is unproportionally higher,
-              with men accounting for roughly 85% of the total gun-related
-              crimes in the United States. According to the gun crime data males
-              aged 26-64 are most likely to commit gun-related crimes.
-            </p>
-          </div>
-          <div id="death">
-            <div id="deathleft">
-              <canvas
-                id="myChart4"
-                aria-label="donut chart"
-                role="img"
-              ></canvas>
-            </div>
-            <div id="deathright">
-              <canvas id="myChart" aria-label="donut chart" role="img"></canvas>
-            </div>
-          </div>
-        </div>
+        <CrimeParticipantsComponent
+          agecat={agecat}
+        ></CrimeParticipantsComponent>
 
         <div id="fourthcontainer">
           <div className="headings">
