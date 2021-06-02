@@ -78,6 +78,7 @@ ComparisionComponent = (props) => {
       },
     });
   };
+
   return (
     <div id="firstcontainer">
       <div className="headings">

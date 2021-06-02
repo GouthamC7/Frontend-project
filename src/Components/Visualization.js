@@ -3,64 +3,15 @@ import "../Styles/Visualization.css";
 import ComparisionComponent from "./ComparisionComponent";
 import CrimeParticipantsComponent from "./CrimeParticipantsComponent";
 import GunDeathsComponent from "./GunDeathsComponent";
+import YearStatisticsComponent from "./YearStatisticsComponent";
+import state_names from "..Constants/states.js";
+import { state_names } from "../Constants/states";
 
 let data = [];
 const Chart = window.Chart;
 const Highcharts = window.Highcharts;
 
-let state_names = [
-  "Alabama",
-  "Alaska",
-  "Arizona",
-  "Arkansas",
-  "California",
-  "Colorado",
-  "Connecticut",
-  "Delaware",
-  "District of Columbia",
-  "Florida",
-  "Georgia",
-  "Hawaii",
-  "Idaho",
-  "Illinois",
-  "Indiana",
-  "Iowa",
-  "Kansas",
-  "Kentucky",
-  "Louisiana",
-  "Maine",
-  "Maryland",
-  "Massachusetts",
-  "Michigan",
-  "Minnesota",
-  "Mississippi",
-  "Missouri",
-  "Montana",
-  "Nebraska",
-  "Nevada",
-  "New Hampshire",
-  "New Jersey",
-  "New Mexico",
-  "New York",
-  "North Carolina",
-  "North Dakota",
-  "Ohio",
-  "Oklahoma",
-  "Oregon",
-  "Pennsylvania",
-  "Rhode Island",
-  "South Carolina",
-  "South Dakota",
-  "Tennessee",
-  "Texas",
-  "Utah",
-  "Vermont",
-  "Virginia",
-  "Washington",
-  "West Virginia",
-  "Wisconsin",
-  "Wyoming",
-];
+let state_names = state_names;
 
 class Visualization extends Component {
   constructor(props) {
@@ -74,24 +25,12 @@ class Visualization extends Component {
       shouldLoad: false,
       statesdata: [],
     };
-    // this.compare = this.compare.bind(this);
   }
 
   componentDidMount() {
     data = this.props.data;
     this.modifyData();
   }
-
-  // compare(e) {
-  //   e.preventDefault();
-  //   let input1 = document.getElementById("state1").value;
-  //   let input2 = document.getElementById("state2").value;
-  //   this.setState({
-  //     input_state1: input1,
-  //     input_state2: input2,
-  //   });
-  //   this.draw(input1, input2, this.state.statesdata);
-  // }
 
   modifyData() {
     let date;
@@ -170,169 +109,6 @@ class Visualization extends Component {
         }
       });
     });
-
-    this.setState({
-      statesdata: states,
-    });
-    this.draw("California", "Florida", states);
-
-    var key1 = [];
-    var value1 = [];
-
-    var gunkey = [];
-    var gunvalue = [];
-
-    for (var element in gunobj) {
-      gunkey.push(element);
-      gunvalue.push(gunobj[element]);
-    }
-    var chart = document.getElementById("guns").getContext("2d");
-    var barChartOptions = {
-      legend: { position: "bottom" },
-    };
-    var myChart = new Chart(chart, {
-      type: "doughnut",
-      data: {
-        labels: gunkey,
-        datasets: [
-          {
-            label: "",
-            data: gunvalue,
-            backgroundColor: [
-              "rgba(255, 206, 86, 0.8)",
-              "rgba(54, 162, 235, 0.8)",
-              "rgba(153, 102, 255, 0.8)",
-            ],
-            borderColor: [
-              "rgba(255, 206, 86, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(153, 102, 255, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        legend: {
-          display: true,
-          position: "bottom",
-        },
-      },
-    });
-    var key = [];
-    var value = [];
-
-    for (var element in genderobj) {
-      key.push(element);
-      value.push(genderobj[element]);
-    }
-
-    var chart = document.getElementById("myChart").getContext("2d");
-    var barChartOptions = {
-      legend: { position: "bottom" },
-    };
-    var myChart = new Chart(chart, {
-      type: "doughnut",
-      data: {
-        labels: ["male", "female", "Unknown"],
-        datasets: [
-          {
-            label: "",
-            data: value,
-            backgroundColor: [
-              "rgba(54, 162, 235, 0.8)",
-              "rgba(255, 206, 86, 0.8)",
-              "rgba(255, 99, 132, 0.8)",
-            ],
-            borderColor: [
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(255, 99, 132, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        legend: {
-          display: true,
-          position: "bottom",
-        },
-      },
-    });
-  }
-
-  draw(input_state1, input_state2, states) {
-    let yearsnum = [2013, 2014, 2015, 2016, 2017, 2018];
-    let prefix1 = [];
-    let prefix2 = [];
-    let statesinfo = states;
-    console.log(statesinfo);
-    yearsnum.forEach((y) => {
-      prefix1.push(statesinfo[input_state1][y]);
-      prefix2.push(statesinfo[input_state2][y]);
-    });
-
-    Highcharts.chart("comparisioncontainer", {
-      title: {
-        text: "Comparision",
-      },
-
-      yAxis: {
-        title: {
-          text: "Number of Deaths",
-        },
-      },
-
-      xAxis: {
-        accessibility: {
-          rangeDescription: "Range: 2013 to 2018",
-        },
-      },
-
-      legend: {
-        layout: "vertical",
-        align: "right",
-        verticalAlign: "middle",
-      },
-
-      plotOptions: {
-        series: {
-          label: {
-            connectorAllowed: false,
-          },
-          pointStart: 2013,
-        },
-      },
-
-      series: [
-        {
-          name: input_state1,
-          data: prefix1,
-        },
-        {
-          name: input_state2,
-          data: prefix2,
-        },
-      ],
-
-      responsive: {
-        rules: [
-          {
-            condition: {
-              maxWidth: 500,
-            },
-            chartOptions: {
-              legend: {
-                layout: "horizontal",
-                align: "center",
-                verticalAlign: "bottom",
-              },
-            },
-          },
-        ],
-      },
-    });
   }
 
   render() {
@@ -346,24 +122,7 @@ class Visualization extends Component {
         <CrimeParticipantsComponent
           agecat={agecat}
         ></CrimeParticipantsComponent>
-
-        <div id="fourthcontainer">
-          <div className="headings">
-            <h3 className="headingsinfo">National Gun Deaths by Year</h3>
-          </div>
-          <div id="death">
-            <div id="deathleft">
-              <p id="sizefont">
-                Stolen guns are almost 10 times most likely to be involved in
-                gun crimes than legally owned guns which usually require
-                background check before purchase.
-              </p>
-            </div>
-            <div id="deathright">
-              <canvas id="guns" aria-label="donut chart" role="img"></canvas>
-            </div>
-          </div>
-        </div>
+        <YearStatisticsComponent gunobj={gunobj}></YearStatisticsComponent>
       </div>
     );
   }
