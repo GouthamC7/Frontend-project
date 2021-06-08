@@ -8,7 +8,7 @@ const CrimeParticipantsComponent = (props) => {
     values.push(agecat[element]);
   }
 
-  var chart = document.getElementById("myChart4").getContext("2d");
+  var chart = document.getElementById("chart").getContext("2d");
   var barChartOptions = {
     legend: { position: "bottom" },
   };
@@ -62,7 +62,7 @@ const CrimeParticipantsComponent = (props) => {
       </div>
       <div id="death">
         <div id="deathleft">
-          <canvas id="myChart4" aria-label="donut chart" role="img"></canvas>
+          <canvas id="chart" aria-label="donut chart" role="img"></canvas>
         </div>
         <div id="deathright">
           <canvas id="myChart" aria-label="donut chart" role="img"></canvas>

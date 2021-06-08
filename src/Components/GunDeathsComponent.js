@@ -5,7 +5,6 @@ let GunDeathsComponent = (props) => {
     deathobj = props.deathobj;
     var keys = [];
     var values = [];
-
     for (element in deathobj) {
       keys.push(element);
       values.push(deathobj[element]);

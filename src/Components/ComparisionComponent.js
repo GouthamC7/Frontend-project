@@ -2,8 +2,10 @@ import React from "react";
 
 let draw = (input_state1, input_state2, states) => {};
 
+//executes when user clicks compare button
 ComparisionComponent = (props) => {
   let compare = (e) => {
+    //prevents page from refreshing
     e.preventDefault();
     let input1 = document.getElementById("state1").value;
     let input2 = document.getElementById("state2").value;
@@ -11,7 +13,6 @@ ComparisionComponent = (props) => {
     let prefix1 = [];
     let prefix2 = [];
     let statesinfo = props.states;
-    console.log(statesinfo);
     yearsnum.forEach((y) => {
       prefix1.push(statesinfo[input_state1][y]);
       prefix2.push(statesinfo[input_state2][y]);

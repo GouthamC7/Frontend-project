@@ -8,6 +8,15 @@ import state_names from "..Constants/statesData.js";
 import { state_names } from "../Constants/statesData";
 
 let rawData = [];
+let date;
+let state;
+let ageobj = { 0: 0 };
+let statesData = {};
+let genderData = { M: 0, F: 0, U: 0 };
+let prefix;
+let gunsData = { stolen: 0, unknown: 0, legal: 0 };
+let deathsData = {};
+let ageData = { "0-9": 0, "10-18": 0, "19-25": 0, "25-64": 0, "64+": 0 };
 const Chart = window.Chart;
 const Highcharts = window.Highcharts;
 
@@ -28,16 +37,9 @@ class Visualization extends Component {
     this.processData();
   }
 
+  // parses the whole data and extracts data which is useful for other components
   processData() {
-    let date;
-    let state;
-    let ageobj = { 0: 0 };
-    let statesData = {};
-    let genderData = { M: 0, F: 0, U: 0 };
-    let prefix;
-    let gunsData = { stolen: 0, unknown: 0, legal: 0 };
-    let deathsData = {};
-    let ageData = { "0-9": 0, "10-18": 0, "19-25": 0, "25-64": 0, "64+": 0 };
+    //iterate through each and every element
     rawData.forEach((element) => {
       date = element.date.slice(-4);
       if (deathsData.hasOwnProperty(date)) {
@@ -63,6 +65,7 @@ class Visualization extends Component {
       }
 
       var age = element.participant_age.split("||");
+      //Parses and increments count of appropriate age category
       age.forEach((a) => {
         prefix = a.substring(3, 5);
         let t = parseInt(prefix);
@@ -85,6 +88,7 @@ class Visualization extends Component {
         }
       });
       var gender = element.participant_gender.split("||");
+      //Parses and increments count of appropriate gender
       gender.forEach((gen) => {
         prefix = gen.substring(3, 4);
         if (genderData.hasOwnProperty(prefix)) {
@@ -95,6 +99,7 @@ class Visualization extends Component {
       });
 
       var guns = element.gun_stolen.split("||");
+      //Parses and increments count of appropriate category
       guns.forEach((gun) => {
         prefix = gun.substring(3);
         if (prefix.includes("Stolen")) {
