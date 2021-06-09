@@ -3,6 +3,7 @@ import React from "react";
 const CrimeParticipantsComponent = (props) => {
   let keys = [];
   let values = [];
+  //keys and values for the chart
   for (element in props.agecat) {
     keys.push(element);
     values.push(agecat[element]);
@@ -12,6 +13,7 @@ const CrimeParticipantsComponent = (props) => {
   var barChartOptions = {
     legend: { position: "bottom" },
   };
+  //code for displaying chart
   var myChart = new Chart(chart, {
     type: "bar",
     data: {

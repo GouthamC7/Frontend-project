@@ -10,7 +10,7 @@ import { state_names } from "../Constants/statesData";
 let rawData = [];
 let date;
 let state;
-let ageobj = { 0: 0 };
+let ageData = { 0: 0 };
 let statesData = {};
 let genderData = { M: 0, F: 0, U: 0 };
 let prefix;
@@ -32,6 +32,7 @@ class Visualization extends Component {
     };
   }
 
+  //invokes after component is rendered
   componentDidMount() {
     rawData = this.props.data;
     this.processData();
@@ -39,7 +40,6 @@ class Visualization extends Component {
 
   // parses the whole data and extracts data which is useful for other components
   processData() {
-    //iterate through each and every element
     rawData.forEach((element) => {
       date = element.date.slice(-4);
       if (deathsData.hasOwnProperty(date)) {
@@ -81,10 +81,10 @@ class Visualization extends Component {
           ageData["64+"] = ageData["64+"] + 1;
         } else {
         }
-        if (ageobj.hasOwnProperty(prefix)) {
-          ageobj[prefix] = parseInt(ageobj[prefix]) + 1;
+        if (ageData.hasOwnProperty(prefix)) {
+          ageData[prefix] = parseInt(ageData[prefix]) + 1;
         } else {
-          ageobj[prefix] = parseInt("1");
+          ageData[prefix] = parseInt("1");
         }
       });
       var gender = element.participant_gender.split("||");

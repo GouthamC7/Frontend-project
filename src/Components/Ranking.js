@@ -9,6 +9,7 @@ class Ranking extends Component {
     super(props);
   }
 
+  //executes when component loads
   componentDidMount() {
     sortedData = this.props.data;
     //sorting the data based on n_killed field

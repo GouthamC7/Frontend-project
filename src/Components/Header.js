@@ -27,7 +27,7 @@ class Header extends Component {
             rawData: result,
             shouldLoad: false,
           });
-        },
+        }, // if fetching fails
         (error) => {
           console.log(error);
         }

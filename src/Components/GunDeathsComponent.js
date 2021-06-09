@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 
 let GunDeathsComponent = (props) => {
+  //executes when component loads
   useEffect(() => {
     deathobj = props.deathobj;
     var keys = [];
     var values = [];
+    //keys and values for the chart
     for (element in deathobj) {
       keys.push(element);
       values.push(deathobj[element]);
@@ -14,6 +16,7 @@ let GunDeathsComponent = (props) => {
     var barChartOptions = {
       legend: { position: "bottom" },
     };
+    // code for displaying chart
     var myChart = new Chart(chart, {
       type: "line",
       data: {

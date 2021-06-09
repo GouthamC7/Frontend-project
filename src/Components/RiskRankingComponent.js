@@ -4,9 +4,9 @@ import "../Styles/Ranking.css";
 const RiskRankingComponent = (props) => {
   let relaationsData = {};
 
+  // executes when component loads
   useEffect(() => {
     sortedData = this.props.sortedData;
-
     sortedData.forEach((element) => {
       var relation = element.participant_relationship.split("|");
       relation.forEach((rel) => {
@@ -24,15 +24,15 @@ const RiskRankingComponent = (props) => {
       sortable.push([rel, relaationsData[rel]]);
     }
 
+    // sort the array based on kills
     sortable.sort(function (a, b) {
       return b[1] - a[1];
     });
-    var relationdata = sortable.shift();
-
     var chart = document.getElementById("chart").getContext("2d");
     var keys = [];
     var values = [];
 
+    //keys and values for chart
     for (var j = 0; j < 10; j++) {
       keys.push(sortable[j][0]);
       values.push(sortable[j][1]);

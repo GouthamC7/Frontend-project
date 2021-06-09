@@ -4,6 +4,7 @@ import "../Styles/Ranking.css";
 const IncidentsRankingComponent = (props) => {
   let incidents = {};
   let label;
+  //executes when component loads
   useEffect(() => {
     sortedData = this.props.sortedData;
     for (let i = 0; i < 10; i++) {
@@ -15,10 +16,11 @@ const IncidentsRankingComponent = (props) => {
         sortedData[i].date;
       incidents[label] = sortedData[i].n_killed;
     }
-    var chart1 = document.getElementById("chart").getContext("2d");
+    var chart = document.getElementById("chart").getContext("2d");
     var keys = [];
     var values = [];
 
+    //keys and values for the chart
     for (var element in incidents) {
       keys.push(element);
       values.push(incidents[element]);
@@ -26,7 +28,7 @@ const IncidentsRankingComponent = (props) => {
     var barChartOptions = {
       legend: { position: "bottom" },
     };
-    var myChart1 = new Chart(chart1, {
+    var myChart = new Chart(chart1, {
       type: "horizontalBar",
       data: {
         labels: keys,

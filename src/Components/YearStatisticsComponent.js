@@ -4,6 +4,7 @@ const YearStatisticsComponent = (props) => {
   var gunkey = [];
   var gunvalue = [];
 
+  // keys and values for chart
   for (var element in props.gunobj) {
     gunkey.push(element);
     gunvalue.push(gunobj[element]);
@@ -12,6 +13,8 @@ const YearStatisticsComponent = (props) => {
   var barChartOptions = {
     legend: { position: "bottom" },
   };
+
+  //code to display doughnut chart
   var myChart = new Chart(chart, {
     type: "doughnut",
     data: {
